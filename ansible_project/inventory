@@ -1,0 +1,7 @@
+[vm_centos]
+172.25.0.101
+
+[vm_centos:vars]
+ansible_connection=ssh
+ansible_ssh_user=root
+ansible_ssh_pass=q1w2e3R$

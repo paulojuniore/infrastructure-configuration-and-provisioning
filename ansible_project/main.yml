@@ -1,0 +1,16 @@
+---
+- hosts: all
+  tasks:
+    - name: Print message
+      debug:
+        msg: Hello Ansible World
+
+    - name: Create a file
+      shell: |
+        cd ~
+        touch teste.txt
+
+    - name: Deleting a file previously created
+      shell: |
+        cd ~
+        rm teste.txt
