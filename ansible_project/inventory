@@ -5,3 +5,13 @@
 ansible_connection=ssh
 ansible_ssh_user=root
 ansible_ssh_pass=q1w2e3R$
+
+[vm_windows]
+172.25.0.106
+
+[vm_windows:vars]
+ansible_user=administrator
+ansible_password=q1w2e3R$
+ansible_connection=winrm
+ansible_winrm_transport=basic
+ansible_winrm_server_cert_validation=ignore

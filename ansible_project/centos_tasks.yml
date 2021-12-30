@@ -1,0 +1,27 @@
+---
+- hosts: vm_centos
+  tasks:
+    - name: Print message
+      debug:
+        msg: Hello Ansible on CentOS VM
+
+    - name: Create a file
+      shell: |
+        cd ~
+        touch teste.txt
+
+    - name: Deleting a file previously created
+      shell: |
+        cd ~
+        rm teste.txt
+
+    - name: Installing latest version of Apache
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Remove the Apache package previously installed
+      yum:
+        name: httpd
+        state: absent
+
