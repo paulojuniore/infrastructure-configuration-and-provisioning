@@ -1,3 +1,4 @@
+# Azure Provider source and version being used
 terraform {
   required_providers {
     azurerm = {
@@ -7,15 +8,18 @@ terraform {
   }
 }
 
+# Configure the Microsoft Azure Provider
 provider "azurerm" {
   features {}
 }
 
+# Create a resource group
 resource "azurerm_resource_group" "res_group" {
   name     = "rg-win-terraform"
   location = "eastus2"
 }
 
+# Create a virtual network
 resource "azurerm_virtual_network" "virtual_net" {
   name                = "vn-win-terraform"
   address_space       = ["10.0.0.0/16"]
@@ -23,6 +27,7 @@ resource "azurerm_virtual_network" "virtual_net" {
   resource_group_name = azurerm_resource_group.res_group.name
 }
 
+# Create a subnet
 resource "azurerm_subnet" "subnet" {
   name                 = "internal"
   resource_group_name  = azurerm_resource_group.res_group.name
@@ -38,6 +43,7 @@ resource "azurerm_public_ip" "public_ip" {
   allocation_method = "Static"
 }
 
+# Create network interface
 resource "azurerm_network_interface" "net_interface" {
   name                = "ni_vm02"
   location            = azurerm_resource_group.res_group.location
@@ -51,6 +57,7 @@ resource "azurerm_network_interface" "net_interface" {
   }
 }
 
+# Create a Windows Server virtual machine
 resource "azurerm_windows_virtual_machine" "vm" {
   name                = "windows-vm"
   resource_group_name = azurerm_resource_group.res_group.name
