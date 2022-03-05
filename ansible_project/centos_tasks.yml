@@ -10,6 +10,12 @@
       name: httpd
       state: latest
 
+  # - name: Remove Apache
+  #   yum:
+  #     name: httpd
+  #     autoremove: yes
+  #     state: absent
+
   - name: Enable service to start on boot up
     service:
       name: httpd
