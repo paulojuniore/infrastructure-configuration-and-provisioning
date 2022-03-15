@@ -5,16 +5,16 @@
   gather_facts: no
 
   tasks:
-  - name: Apache latest version installation
-    yum:
-      name: httpd
-      state: latest
-
-  # - name: Remove Apache
+  # - name: Apache latest version installation
   #   yum:
   #     name: httpd
-  #     autoremove: yes
-  #     state: absent
+  #     state: latest
+
+  - name: Remove Apache
+    yum:
+      name: httpd
+      autoremove: yes
+      state: absent
 
   - name: Enable service to start on boot up
     service:
