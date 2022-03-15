@@ -6,4 +6,4 @@ node 'puppet1.domain.com.br' {
         ensure => running,
     enable => true
     }
- }
+}
