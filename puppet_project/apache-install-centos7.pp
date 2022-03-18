@@ -1,9 +1,9 @@
 node 'puppet1.domain.com.br' {
     package { 'httpd':
-        ensure  => "installed",
+        ensure  => 'installed',
     }
     service { 'httpd':
         ensure => running,
-    enable => true
+        enable => true
     }
 }
